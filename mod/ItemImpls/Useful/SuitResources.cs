@@ -138,9 +138,17 @@ internal class SuitResources
             }
         }
 
-        oxygenCapacityPerUpgrade = (int)((oxygenMax - 50) / oxygenCount);
-        fuelCapacityPerUpgrade = (int)((fuelMax - 50) / fuelCount);
-        boostDurationPerUpgrade = (int)((boostMax - 50) / boostCount);
+        initialOxygenCapacity = (oxygenCount == 0) ? 100 : 50;
+        oxygenCapacityPerUpgrade = (oxygenCount == 0) ? 0 : (int)((oxygenMax - 50) / oxygenCount);
+        ApplyMaxOxygen();
+
+        initialFuelCapacity = (fuelCount == 0) ? 100 : 50;
+        fuelCapacityPerUpgrade = (fuelCount == 0) ? 0 : (int)((fuelMax - 50) / fuelCount);
+        ApplyMaxFuel();
+
+        initialBoostDuration = (boostCount == 0) ? 100 : 50;
+        boostDurationPerUpgrade = (boostCount == 0) ? 0 : (int)((boostMax - 50) / boostCount);
+        ApplyMaxBoost();
     }
 
     public static void ModSettingsChanged(IModConfig config)
