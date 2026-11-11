@@ -465,7 +465,6 @@ internal class LocationTriggers
             case Item.CrystalRepairManual: CrystalManual.HasCrystalManual = (count > 0); break;
             case Item.ProbabilityRule: QuantumProbability.hasProbabilityKnowledge = (count > 0); break;
             case Item.WarpDrive: WarpDrive.HasWarpDrive = (count > 0); break;
-            case Item.DeepBrambleCoordinates: WarpDrive.HasWarpDrive = (count > 0); break;
             case Item.Threader: Threader.hasThreader = (count > 0); break;
             case Item.DaucusOrb: OrreryOrbs.HasDaucusOrb = (count > 0); break;
             case Item.GlacialAbyssOrb: OrreryOrbs.HasGlacialAbyssOrb = (count > 0); break;
@@ -473,7 +472,9 @@ internal class LocationTriggers
             case Item.ShatteredGeodeOrb: OrreryOrbs.HasShatteredGeodeOrb = (count > 0); break;
 
             // for backwards-compatibility
-            case Item.Spaceship: break; case Item.Nothing: break;
+            case Item.Spaceship: break;
+            case Item.Nothing: break;
+            case Item.DeepBrambleCoordinates: break;
             default:
                 APRandomizer.OWMLModConsole.WriteLine($"unknown item: {item}", OWML.Common.MessageType.Error);
                 break;
