@@ -636,7 +636,7 @@ public class Logic
             "Menu",
             "Space",
             "Hourglass Twins",
-            "Timber Hearth Village", // leaving out "Timber Hearth" for now
+            "Timber Hearth",
             "Brittle Hollow",
             "Giant's Deep",
             // Dark Bramble and Quantum Moon are not in this list, because:
