@@ -293,18 +293,20 @@ public class Logic
         // The Deep Bramble spawn has some extra nuance since it's in a different system
         if (spawn == SlotDataSpawn.DeepBramble)
         {
-            TrackerRegions["Menu"].toConnections.First(tcd => tcd.to == "Space").requires.Add(new() { item = "Deep Bramble Coordinates" });
+            TrackerRegions["Menu"].toConnections.First(tcd => tcd.to == "Space").requires.Add(new() { item = "Interstellar Warp Drive" });
             AddConnection(TrackerRegions, new() {
                 from = "Deep Bramble",
-                to = "Deep Bramble via Warp Drive",
+                to = "Timber Hearth Village",
+                requires = [new() { item = "Interstellar Warp Drive" }]
+            });
+            AddConnection(TrackerRegions, new() {
+                from = "Deep Bramble",
+                to = "Deep Bramble with Ship",
                 requires = [new() { item = "Launch Codes" }]
             });
             if (APRandomizer.SlotEnabledMod("enable_ac_mod") && APRandomizer.SlotEnabledLogsanity())
             {
-                TrackerLocations["AC Ship Log: Flashback Vision"].requires.AddRange([
-                    new() { item = "Launch Codes" },
-                    new() { item = "Deep Bramble Coordinates" },
-                ]);
+                TrackerLocations["AC Ship Log: Flashback Vision"].requires.AddRange([new() { item = "Interstellar Warp Drive" }]);
             }
         }
 
