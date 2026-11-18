@@ -43,14 +43,7 @@ internal class WarpDrive
                     if (nhm != null)
                     {
                         // Force-enable the warp drive immediately
-                        var enableWarpDriveFunctionalityMethod = nhm.GetMethod("EnableWarpDriveFunctionality");
-                        if (enableWarpDriveFunctionalityMethod == null)
-                        {
-                            APRandomizer.OWMLModConsole.WriteLine($"failed to enable warp drive, enableWarpDriveFunctionalityMethod was null", OWML.Common.MessageType.Warning);
-                            return;
-                        }
-                        var newHorizons = APRandomizer.Instance.ModHelper.Interaction.TryGetMod("xen.NewHorizons");
-                        enableWarpDriveFunctionalityMethod.Invoke(newHorizons, new object[] { });
+                        var enableWarpDriveFunctionalityMethod = nhm.GetProperty("HasWarpDriveFunctionality").SetMethod.Invoke(null, new object[] { true });
                     }
                 }
             }
